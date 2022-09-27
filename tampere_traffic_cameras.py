@@ -11,6 +11,15 @@ to avoid any problems with misaligning.
 (which might be possible at the moment)
 """
 
+#TODO Optimize code for speed
+#
+#TODO Optimize import statements for speed
+#
+#TODO create loading sequence to avoid exe not answering
+#
+#TODO certifications
+
+
 import json
 import requests
 from requests import Timeout
