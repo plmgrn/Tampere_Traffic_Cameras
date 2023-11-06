@@ -28,3 +28,9 @@ Information for release 1.0.0
 -If you doubt the software, the code is available to see
   at all times.
   
+
+
+
+
+
+Newest code is a temporary fix for a problem I'm don't have the time to investigate.
