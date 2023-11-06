@@ -11,6 +11,8 @@ to avoid any problems with misaligning.
 (which might be possible at the moment)
 """
 
+#TODO fix bubblegum fixes from json parcing
+#
 #TODO Optimize code for speed
 #
 #TODO Optimize import statements for speed
@@ -134,13 +136,17 @@ def fetch():
     # Fetching the dates of the cameras to filter out ones that don't work
     datelist = []
     i = 0
+    print(responsedata["results"])
     while i < len(responsedata["results"]):
-        date = responsedata["results"][i]['cameraPresets'][0]['latestPictureTimestamp']
-        d1 = datetime.datetime.strptime(date, "%Y-%m-%dT%H:%M:%S%z")
-        #check the dates of the pictures
-        #print(d1.date())
-        datelist.append(d1.date())
-        i += 1
+        try:
+            date = responsedata["results"][i]['cameraPresets'][0]['latestPictureTimestamp']
+            d1 = datetime.datetime.strptime(date, "%Y-%m-%dT%H:%M:%S%z")
+            #check the dates of the pictures
+            #print(d1.date())
+            datelist.append(d1.date())
+            i+=1
+        except:
+            i += 1
 
     datelist.sort()
     datelist.reverse()
@@ -164,15 +170,18 @@ def fetch():
 
     print('\n\n************************\n** BROKEN CAMERA INFO **\n************************')
     while j < len(responsedata["results"]):
-        picdate = responsedata["results"][j]['cameraPresets'][0]['latestPictureTimestamp']
-        picdate = datetime.datetime.strptime(picdate, "%Y-%m-%dT%H:%M:%S%z")
-        picdate = picdate.date()
-        if picdate != CorrectDateTime:
-            print(f'kamera {responsedata["results"][j]["cameraPresets"][0]["presetId"]} näyttää aikaa {picdate}')
-        else:
-            namelist.append(responsedata["results"][j]["cameraPresets"][0]["presetId"])
-            urlist.append(responsedata["results"][j]['cameraPresets'][0]['imageUrl'])
-        j += 1
+        try:
+            picdate = responsedata["results"][j]['cameraPresets'][0]['latestPictureTimestamp']
+            picdate = datetime.datetime.strptime(picdate, "%Y-%m-%dT%H:%M:%S%z")
+            picdate = picdate.date()
+            if picdate != CorrectDateTime:
+                print(f'kamera {responsedata["results"][j]["cameraPresets"][0]["presetId"]} näyttää aikaa {picdate}')
+            else:
+                namelist.append(responsedata["results"][j]["cameraPresets"][0]["presetId"])
+                urlist.append(responsedata["results"][j]['cameraPresets'][0]['imageUrl'])
+            j += 1
+        except:
+            j+=1
 
     print('\n\n')
 
