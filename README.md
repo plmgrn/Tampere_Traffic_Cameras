@@ -1,3 +1,44 @@
+# **THIS PROJECT IS NOT UPDATED AND THE APP IS NO-OP**
+The existing API calls / API endpoint are faulty and there is no functionality.
+
+The app exits on an API error ungracefully. -> **NO-OP**
+
+This will likely never be fixed as the project is barebones and boring.
+
+Same idea might be applied to another project someday.
+
+
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+
 # Tampere_Traffic_Cameras
 GUI for Tampere Traffic Cameras. Made with Python and Tampere API
 
